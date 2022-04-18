@@ -56,20 +56,26 @@ class MainActivity : AppCompatActivity() {
         btn.setOnClickListener(){
         Roll()
         }
-        val car1=Car("Toyota","Pink")
-        val car2=Car("Mercedes Benz","Grey")
-        val txt: TextView =findViewById(R.id.textView1)
-        val txt2:TextView=findViewById(R.id.textView2)
-        val priceOfCar1=car1.Price()
-        val priceOfCar2=car2.Price()
-        txt.text=priceOfCar1.toString()
-        txt2.text= priceOfCar2.toString()
+        fun ObjectHolder() {
+            val car1 = Car("Toyota", "Grey")
+            val car2 = Car("Mercedes Benz", "Blue")
+            val txt: TextView = findViewById(R.id.textView1)
+            val txt2: TextView = findViewById(R.id.textView2)
+            var priceOfCar1 = car1.price()
+            var priceOfCar2 = car2.price()
+            txt.text = "Car1: ${priceOfCar1}"
+            txt2.text = "Car2: ${priceOfCar2}"
+
+        }
+        ObjectHolder()
     }
 }
-class Car( val name:String ,val color:String){
-    fun Price() {
-        println("Your Car name is ${name} and its ${color} in color")
-        //println((900000..3000000).random())
+open class Car( open var name:String, var color:String){
+   open fun price() : String {
+        var priceGenerator=(1_000_000..9_000_000).random()
+        return "Your Car name is $name, its $color in color and its price is Ksh$priceGenerator"
+
     }
+
 
 }
