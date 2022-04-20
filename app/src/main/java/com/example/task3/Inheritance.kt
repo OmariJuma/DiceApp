@@ -1,13 +1,16 @@
 package com.example.task3
 
-class Inheritance(override var name:String) : Car("",""){
+class Inheritance(override var name:String, override var color:String) : Car("",""){
    override fun price():String{
-        return "This model is still in its inception, its name is $name"
-    }
+       return "Your Car name is $name, its $color in color and its price is Ksh$priceGenerator"
+
+   }
 
 
 }
 fun main(){
-    val inheritorOne=Inheritance("Chevrolet")
+    val inheritorOne=Inheritance("Chevrolet", "Yellow")
+    val inheritorTwo=Inheritance("Audi", "Grey")
     println(inheritorOne.price())
+    println(inheritorTwo.price())
 }

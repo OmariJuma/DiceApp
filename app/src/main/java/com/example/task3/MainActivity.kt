@@ -53,7 +53,7 @@ class MainActivity : AppCompatActivity() {
            }
 
        }
-        btn.setOnClickListener(){
+        btn.setOnClickListener {
         Roll()
         }
         fun ObjectHolder() {
@@ -70,9 +70,10 @@ class MainActivity : AppCompatActivity() {
         ObjectHolder()
     }
 }
-open class Car( open var name:String, var color:String){
+open class Car( open var name:String, open var color:String){
+    open var priceGenerator=(1_000_000..9_000_000).random()
    open fun price() : String {
-        var priceGenerator=(1_000_000..9_000_000).random()
+
         return "Your Car name is $name, its $color in color and its price is Ksh$priceGenerator"
 
     }
